@@ -10,9 +10,3 @@ content:
     - icon: 55
       title: "#幻塔更新"
       desc: "更新TOP插件"
-
-- group: "其他管理"
-  list:
-    - icon: 55
-      title: "#云崽配置状态"
-      desc: "后台打印记录可查看"
