@@ -4,4 +4,4 @@ export const appname = 'TOP-plugin'
 /* 自动匹配插件绝对路径 */
 export const __dirname = `${path.resolve()}${path.sep}plugins${path.sep}${appname}`
 /** 打印插件名*/
-logger.info(`${appname}[2023-3-14]`);
+logger.info(`${appname}[2023-3-15] v.0.0beta 已经载入~~`);
