@@ -5,11 +5,11 @@ content:
 - group: "主管理"
   list:
     - icon: 55
-      title: "#柠檬配置更改+配置名*数值"
-      desc: "#柠檬配置更改撤回时间*30"
+      title: "#幻塔配置更改+配置名*数值"
+      desc: "#幻塔配置更改撤回时间*30"
     - icon: 55
-      title: "#柠檬更新"
-      desc: "更新半柠檬插件"
+      title: "#幻塔更新"
+      desc: "更新TOP插件"
 
 - group: "其他管理"
   list:
