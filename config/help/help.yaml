@@ -2,8 +2,17 @@ title: "#幻塔帮助"
 subTitle: "Yunzai-Bot & TOP-Plugin"
 
 content:
-- group: "测试"
+- group: "图鉴相关"
   list: 
     - icon: 98
-      title: "#柠檬信息"
-      desc: "测试代码示例"
+      title: "#幻塔总列表"
+      desc: "拉取汇总的图鉴菜单"
+    - icon: 98
+      title: "#幻塔XX图鉴"
+      desc: "直接访问指定图鉴"
+      
+- group: "其他"
+  list: 
+    - icon: 98
+      title: "#幻塔日历"
+      desc: "拉取BiliWiki提供的活动日历"
