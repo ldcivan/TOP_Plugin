@@ -17,7 +17,7 @@ git clone  https://github.com/ldcivan/TOP_Plugin.git ./plugins/TOP-plugin/
 ```
 >查看具体功能  `#幻塔帮助`   
 >查看管理功能  `#幻塔管理`     
->更新最新版本  `#幻塔更新`或者`#更新TOP-plugin`  
+>更新最新版本  `#幻塔更新`或者`#更新TOP-plugin` <i>(<--推荐使用云崽自带的，因为#幻塔更新可能无法告知更新完成)</i>
 
 >更多内容正在调试
 
