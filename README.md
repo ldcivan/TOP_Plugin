@@ -4,6 +4,7 @@
   </a>
 </p>
 <h1 align="center">TOP-Plugin</h1>
+<div align="center">基于Biligame Wiki</div>
 
 ## 使用教程
 >安装机器人
