@@ -31,23 +31,23 @@ export class AlemonAdminAction extends plugin {
         	let command = "git  pull";
         	if (isForce) {
         		command = "git  checkout . && git  pull";
-        		e.reply("正在执行强制更新操作，请稍等");
+        		await e.reply("正在执行强制更新操作，请稍等");
         	} else {
-        		e.reply("正在执行更新操作，请稍等");
+        		await e.reply("正在执行更新操作，请稍等");
         	}
         	exec(command, {
         		cwd: `${_path}/plugins/TOP-plugin/`
         	}, function(error, stdout, stderr) {
         		//console.log(stdout);
         		if (/Already up[ -]to[ -]date/.test(stdout)||stdout.includes("最新")) {
-        			e.reply("目前已经是最新版幻塔TOP插件了~");
+        			await e.reply("目前已经是最新版幻塔TOP插件了~");
         			return true;
         		}
         		if (error) {
-        			e.reply("幻塔TOP插件更新失败！\nError code: " + error.code + "\n" + error.stack + "\n 请稍后重试。");
+        			await e.reply("幻塔TOP插件更新失败！\nError code: " + error.code + "\n" + error.stack + "\n 请稍后重试。");
         			return true;
         		}
-        		e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...");
+        		await e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...");
         		timer && clearTimeout(timer);
         		redis.set("TOP:restart-msg", JSON.stringify({
         			msg: "重启成功，新版幻塔TOP插件已经生效",
@@ -62,7 +62,7 @@ export class AlemonAdminAction extends plugin {
         			}
         			exec(command, function(error, stdout, stderr) {
         				if (error) {
-        					e.reply("自动重启失败，请手动重启以应用新版幻塔TOP插件。\nError code: " + error.code + "\n" +
+        					await e.reply("自动重启失败，请手动重启以应用新版幻塔TOP插件。\nError code: " + error.code + "\n" +
         						error.stack + "\n");
         					Bot.logger.error('重启失败\n${error.stack}');
         					return true;
