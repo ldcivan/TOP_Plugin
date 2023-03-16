@@ -6,7 +6,13 @@ import {exec} from "child_process";
 export class AlemonAdminAction extends plugin {
     constructor() {
         super(Super({
-	@@ -13,17 +16,67 @@ export class AlemonAdminAction extends plugin {
+            /** 功能名称 */
+          name: '幻塔更新',
+          /** 功能描述 */
+          dsc: '幻塔更新',
+          /** https://oicqjs.github.io/oicq/#events */
+          event: 'message',
+          /** 优先级，数字越小等级越高 */
           priority: 2500,
             rule: [
                 {
@@ -41,7 +47,7 @@ export class AlemonAdminAction extends plugin {
         			e.reply("幻塔TOP插件更新失败！\nError code: " + error.code + "\n" + error.stack + "\n 请稍后重试。");
         			return true;
         		}
-        		e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...");
+        		setTimeout(function() {e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...")}, 1500)
         		timer && clearTimeout(timer);
         		redis.set("TOP:restart-msg", JSON.stringify({
         			msg: "重启成功，新版幻塔TOP插件已经生效",
