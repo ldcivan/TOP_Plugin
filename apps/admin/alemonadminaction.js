@@ -6,13 +6,7 @@ import {exec} from "child_process";
 export class AlemonAdminAction extends plugin {
     constructor() {
         super(Super({
-            /** 功能名称 */
-          name: '幻塔更新',
-          /** 功能描述 */
-          dsc: '幻塔更新',
-          /** https://oicqjs.github.io/oicq/#events */
-          event: 'message',
-          /** 优先级，数字越小等级越高 */
+	@@ -13,17 +16,67 @@ export class AlemonAdminAction extends plugin {
           priority: 2500,
             rule: [
                 {
@@ -22,8 +16,8 @@ export class AlemonAdminAction extends plugin {
             ]
         }))
     }
-    
-    
+
+
     async TOPUpdata(e) {
         const _path = process.cwd();
         if (e.isMaster) {
@@ -31,23 +25,23 @@ export class AlemonAdminAction extends plugin {
         	let command = "git  pull";
         	if (isForce) {
         		command = "git  checkout . && git  pull";
-        		await e.reply("正在执行强制更新操作，请稍等");
+        		e.reply("正在执行强制更新操作，请稍等");
         	} else {
-        		await e.reply("正在执行更新操作，请稍等");
+        		e.reply("正在执行更新操作，请稍等");
         	}
         	exec(command, {
         		cwd: `${_path}/plugins/TOP-plugin/`
         	}, function(error, stdout, stderr) {
         		//console.log(stdout);
         		if (/Already up[ -]to[ -]date/.test(stdout)||stdout.includes("最新")) {
-        			await e.reply("目前已经是最新版幻塔TOP插件了~");
+        			e.reply("目前已经是最新版幻塔TOP插件了~");
         			return true;
         		}
         		if (error) {
-        			await e.reply("幻塔TOP插件更新失败！\nError code: " + error.code + "\n" + error.stack + "\n 请稍后重试。");
+        			e.reply("幻塔TOP插件更新失败！\nError code: " + error.code + "\n" + error.stack + "\n 请稍后重试。");
         			return true;
         		}
-        		await e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...");
+        		e.reply("幻塔TOP插件更新成功，尝试重新启动Yunzai以应用更新...");
         		timer && clearTimeout(timer);
         		redis.set("TOP:restart-msg", JSON.stringify({
         			msg: "重启成功，新版幻塔TOP插件已经生效",
@@ -62,7 +56,7 @@ export class AlemonAdminAction extends plugin {
         			}
         			exec(command, function(error, stdout, stderr) {
         				if (error) {
-        					await e.reply("自动重启失败，请手动重启以应用新版幻塔TOP插件。\nError code: " + error.code + "\n" +
+        					e.reply("自动重启失败，请手动重启以应用新版幻塔TOP插件。\nError code: " + error.code + "\n" +
         						error.stack + "\n");
         					Bot.logger.error('重启失败\n${error.stack}');
         					return true;
@@ -73,7 +67,7 @@ export class AlemonAdminAction extends plugin {
         				}
         			})
         		}, 1000);
-        
+
         	});
         	return true;
     	}
